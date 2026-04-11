@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <div id="particles-js"></div>
+   <header class = "nav-header">
+    <nav>
+        <div class = "nav__logo">Stevensons <br>Rocket Co<img src="./Assets/Logo.png" alt="RocketLogo" class = "logo-img"></div>
+        <a href = "#" class = "nav__hamburger">
+            <span class = "line"></span>
+            <span class = "line"></span>
+            <span class = "line"></span>
+        </a>
+        <div class = "nav__menu">
+        <ul>
+            <li class = "nav__link"><a href="#">Home</a></li>
+            <li class = "nav__link"><a href="#">Plan</a></li>
+            <li class = "nav__link"><a href="#">Funding</a></li>
+            <li class = "nav__link"><a href="#">Investors</a></li>
+            <li class = "nav__link"><a href="#">Timeline</a></li>
+
+        </ul>
+        </div>
+    </nav>
+    </header> 
+    
+    <section class = "mission-dashboard space-mono-regular">
+        <!-- big text on the side -->
+        <div class="headers space-mono-bold">
+            <h1 class = "db-title ">MISSION</h1>
+            <h1 class = "db-title">DESIGN</h1>
+            <h1 class = "db-title">SCALE</h1>
+            <h1 class = "db-title">GOAL</h1>
+        </div>
+        <!--aerospace termial displaying content of hovered title-->
+        <div class="mission-text-terminal">
+            <p class = "system-input" id= "system-input">[NO DATA INPUT]</p>
+            <p class = "streaming-status" style="margin-left:auto;" id = "streaming-status">[IDLE]</p>
+            <div class="terminal-container">
+                <span class = "terminal-output"></span><span class="cursor blinking"><mark>_</mark></span>
+            </div>
+            
+            <div class ="status-details-bar">
+                <span>SECURE CONNECTION: AES_256</span>
+                <span id="live-loc">GEO LOC: </span>
+                <span>VER: 1.0.0 ALPHA</span>
+            </div>
+        </div>
+    </section>
+    <section class="aim-contianer">
+        <div class="aim">We aim to save <strong>1 000 000</strong> lives within 20 years.</div>
+    </section>
+    
+    <section class="mission-telemetry">
+    <h1>Dashboard since January 01 2026</h1>
+    <div class="terminal-container-table">
+        <div class="terminal-header">DATA_STREAM: REGIONAL_IMPACT_v2.6</div>
+        <table class="telemetry-table">
+            <thead>
+                <tr>
+                    <th>SECTOR_ID</th>
+                    <th>METRIC_NAME</th>
+                    <th>CURRENT_STATE (EST.)</th>
+                    <th>TARGET_IMPACT</th>
+                    <th>STATUS_INDICATOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HLT_01</td>
+                    <td>Neonatal Mortality</td>
+                    <td>~1.1M Deaths / Year</td>
+                    <td>-25% Projection</td>
+                    <td><span class="status-searching">[ SEARCHING... ]</span></td>
+                </tr>
+                <tr>
+                    <td>HLT_02</td>
+                    <td>Stillbirth Rate</td>
+                    <td>~28 per 1,000 births</td>
+                    <td> 12 per 1,000</td>
+                    <td><span class="status-optimizing">[ OPTIMIZING ]</span></td>
+                </tr>
+                <tr>
+                    <td>HLT_03</td>
+                    <td>Unsupported Pregnancies</td>
+                    <td>42.5% Region Avg.</td>
+                    <td>Í 10% Targeted</td>
+                    <td><span class="status-active">[ ACTIVE ]</span></td>
+                </tr>
+                <tr>
+                    <td>FIN_04</td>
+                    <td>Capital Deployment</td>
+                    <td>$2.4B Global Need</td>
+                    <td>$500k Initial Ph.</td>
+                    <td><span class="status-funding">[ FUNDING ]</span></td>
+                </tr>
+                <tr>
+                    <td>LVS_05</td>
+                    <td>Total Lives Saved</td>
+                    <td>0 (Pre-Launch)</td>
+                    <td class="highlight">10,000+ Goal</td>
+                    <td><span class="status-ready">[ READY ]</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Stevensons Rocket Co. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Email</a>
+            <a href="#">LinkedIn</a>
+            <p>Designed in Zimbabwe Built for Africa</p>
+        </div>
+    </div>
+</section>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+     <script src="pApp.js"></script>
+</body>
+</html>

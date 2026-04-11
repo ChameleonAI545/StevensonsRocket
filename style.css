@@ -1,0 +1,588 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --bg-obsidian: #05070A;
+  --brand-blue: #0057B8;
+  --active-cyan: #00F2FF;
+  --text-grey: #94A3B8;
+  --hull-plating: #1E293B;
+  --pure-white: #ffffff;
+}
+body{
+  margin: 0;
+  padding: 0;
+  --background-color: #05070A;
+  --text-color: #fff;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Space Mono', monospace;
+  
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-obsidian); /* Dark background looks best */
+  z-index: -1; /* Keeps it behind your content */
+}
+
+header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /* 2. Glassmorphism Effect */
+  background: rgba(0, 0, 0, 0.1); /* Translucent white */
+  backdrop-filter: blur(10px); /* The "frosted" part */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  
+  /* 3. Border & Shadow for depth */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  
+
+}
+
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+  max-width: 85%;
+}
+
+.nav__menu ul{
+  display: flex;
+  gap: 20px; 
+}
+
+.nav__menu ul li, .nav__menu ul li a{
+  list-style: none;
+  text-decoration: none;
+  color: var(--text-color);
+}
+.nav__menu ul li a{
+  display: block;
+  padding-right: 20px;
+}
+.nav__menu ul li a:hover{
+  color:  #0057B8;
+}
+
+.nav__logo{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0px;
+  position: relative;
+  padding: 10px 0;
+  
+}
+
+.logo-img{
+    width: 50px;
+    height: 50px;
+    margin-left: -15px;
+}
+
+.nav__hamburger{
+  display:none;
+  flex-direction: column;
+  width: 40px;
+
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+  z-index: 1000;
+  
+}
+
+.line{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 4px;
+  border-radius: 5px;
+  background-color: var(--text-color);
+  margin: 4px 0;
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 750px){
+  .nav__hamburger{
+    display: flex;
+  }
+
+  .nav__menu{
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: -30rem;
+    background-color: rgba(148, 148, 148, 0.2);
+    width: 100%;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+
+  }
+  
+  nav{
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nav__menu ul{
+    flex-direction: column;
+    width: 100%;
+    padding: 3rem 0 0 0.6rem;
+  }
+
+  .nav__menu ul li{
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  .nav__menu.active{
+    top: 0;
+  }
+
+  .nav__hamburger.active .line:nth-child(1){
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav__hamburger.active .line:nth-child(2){
+    opacity: 0;
+  }
+
+  .nav__hamburger.active .line:nth-child(3){
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+}
+
+/* mission header */
+
+.mission-dashboard {
+  height: 90vh;
+  max-width: 85%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin: 140px auto 0 auto;
+  
+
+}
+
+.db-title{
+  text-align: left;
+  margin: 0;
+  font-size: 3.5rem;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.db-title::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #00949c;
+  left:0;
+  bottom: 0;
+
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.db-title:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.db-title:hover{
+  color: var(--active-cyan);
+  cursor: pointer;
+  transform: translateX(5px) translateY(-10px);
+  
+}
+
+.streaming{
+  color: var(--active-cyan);
+}
+
+.mission-text-terminal{
+
+  border: 1px solid var(--hull-plating);
+  background: rgba(30, 41, 59, 0.3); /* Glassmorphism Base */
+  box-shadow: 0 0 30px rgba(0, 87, 184, 0.1);
+  backdrop-filter: blur(10px); /* Glassmorphism Blur */
+  font-family: 'Space Mono', monospace;
+  color: var(--text-grey);
+  font-size: 1.2rem;
+  max-height: 80vh;
+  margin: 0, 20px, 20px, 20px;
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: auto auto;
+
+}
+
+
+.terminal-container{
+  background-color: var(--bg-obsidian);
+  padding: 0 20px 20px 20px;
+  
+  border: 1px solid var(--hull-plating);
+  border-radius: 10px;
+  margin: 0 20px 20px 20px;
+  
+  /* The "Scanline" effect */
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.1) 50%
+  ), var(--bg-obsidian);
+  background-size: 100% 4px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.terminal-output{
+  
+  font-family: 'Space Mono', monospace;
+  color: var(--text-grey);
+  font-size: 2rem;
+  text-align: left;
+}
+
+.cursor {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.blinking {
+  animation: blink 0.8s step-start infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+mark{
+  background-color: white;
+  color: white;
+}
+
+.system-input, .streaming-status, .status-details-bar{
+  font-size: 1rem;
+  padding: 0px 10px;
+  align-items: center;
+  display: flex;
+
+}
+
+
+
+.status-details-bar {
+ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); 
+  
+
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.4); 
+
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+}
+
+
+.status-bar span {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 1500px) {
+  .db-title {
+    font-size: 2.5rem;
+    padding-bottom: 20px;
+  }
+} 
+
+@media screen and (max-width: 1185px) {
+  .mission-dashboard {
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 60%;
+  }
+
+  .terminal-output, .cursor{
+    font-size: 1.5rem;
+  }
+
+  .system-input, .streaming-status, .status-details-bar{
+    font-size: 0.8rem;
+  }
+
+  .db-title {
+    font-size: 2.5rem;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .db-title {
+    font-size: 1.8rem;
+  }
+
+  .terminal-output, .cursor{
+    font-size: 1.2rem;
+  }
+
+  .system-input, .streaming-status, .status-details-bar{
+    font-size: 0.5rem;
+  }
+}
+
+
+
+
+/* --- Aim Section --- */
+.aim-contianer {
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    height: 90vh;
+
+
+}
+
+.aim{
+  font-size: 2.5cqi;
+      /*add glassmorphism effect*/
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid var(--hull-plating);
+    box-shadow: 0 0 30px rgba(0, 87, 184, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 100px 50px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    border-radius: 10px;
+    color: var(--text-grey);
+  
+}
+
+@media screen and (max-width: 840px) {
+  .aim{
+    padding: 50px 20px;
+    font-size: 3.5cqi;
+  }
+  
+}
+
+@media screen and (max-width: 500px) {
+  .aim{
+    font-size: 4cqi;
+  }
+  
+}
+
+
+
+
+
+/* --- Mission Telemetry Section --- */
+
+
+
+.mission-telemetry {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;
+    padding: 50px 20px;
+    height: 80vh;
+}
+
+.mission-telemetry h1 {
+    font-family: 'Space Mono', monospace;
+    color: var(--active-cyan);
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.terminal-container-table {
+    max-width: 85%; 
+    width: 100%;
+    border: 1px solid var(--hull-plating);
+    background: rgba(30, 41, 59, 0.3); 
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 87, 184, 0.1);
+    backdrop-filter: blur(10px); 
+    max-height: fit-content;
+}
+
+.terminal-header {
+    font-family: 'Space Mono', monospace;
+    color: var(--active-cyan);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.telemetry-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Space Mono', monospace;
+    color: var(--text-grey);
+    text-align: left;
+}
+
+.telemetry-table th {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-bottom: 2px solid var(--hull-plating);
+    color: var(--pure-white);
+}
+
+.telemetry-table td {
+    padding: 15px 12px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--hull-plating);
+}
+
+
+
+@media screen and (max-width: 1185px) {
+    .telemetry-table th { font-size: 0.75rem; }
+    .telemetry-table td { font-size: 0.9rem; }
+}
+
+@media screen and (max-width: 840px) {
+    
+    .telemetry-table thead { display: none; }
+    
+    .telemetry-table td {
+        display: block;
+        padding: 8px 10px;
+        border: none;
+        font-size: 1rem;
+    }
+    
+    .telemetry-table td::before {
+        content: attr(data-label);
+        font-size: 0.65rem;
+        display: block;
+        color: var(--active-cyan);
+        opacity: 0.6;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+    }
+    
+    .telemetry-table tr {
+        display: block;
+        border-bottom: 1px solid var(--hull-plating);
+        padding: 15px 0;
+        background: rgba(30, 41, 59, 0.1); 
+        margin-bottom: 10px;
+    }
+}
+
+.status-searching {
+animation: pulse 1.5s infinite;
+}
+
+.status-optimizing {
+opacity: 0.7;
+animation: flicker 0.2s infinite;
+}
+
+.status-ready {
+color: #fff;
+text-shadow: 0 0 10px #00ff41;
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.3; }
+}
+
+@keyframes flicker {
+0% { opacity: 0.8; }
+50% { opacity: 1; }
+100% { opacity: 0.9; }
+}
+
+@media screen and (max-width: 1185px) {
+.telemetry-table th{
+font-size: 0.75rem;
+}
+
+.telemetry-table td{
+font-size: 0.9rem;
+}
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-grey);
+  font-size: 0.8rem;
+  background-color: black;
+  margin-top: 20px;
+}
+
+
+
+
+/* --- Font Classes --- */
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}

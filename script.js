@@ -6,28 +6,7 @@ navHamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Get user's geolocation
-function getGeolocation() {
-    const liveLocElement = document.getElementById("live-loc");
-    
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const { latitude, longitude } = position.coords;
-                liveLocElement.textContent = `GEO LOC: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`;
-            },
-            (error) => {
-                liveLocElement.textContent = `GEO LOC: [ACCESS DENIED]`;
-                console.log("Geolocation error:", error);
-            }
-        );
-    } else {
-        liveLocElement.textContent = `GEO LOC: [UNAVAILABLE]`;
-    }
-}
 
-// Call geolocation on page load
-getGeolocation();
 
 const systemStream = document.getElementById("system-input");
 const streamingStatus = document.getElementById("streaming-status");

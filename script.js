@@ -85,7 +85,7 @@ function handleTyping(header) {
             i++;
 
             // Speed logic - use consistent delay for all keys
-            const speed = 10;
+            const speed = 30;
             timer = setTimeout(type, speed);
 
             // Optional: Keep scrolling to bottom AS it types
